@@ -1,0 +1,19 @@
+--계정생성
+create user spring identified by spring;
+
+--권한 부여
+grant resource, connect to spring;
+
+--테이블 스페이스 지정
+alter user spring DEFAULT TABLESPACE users QUOTA UNLIMITED on users;
+
+
+--테이블 생성 & 시퀀스 생성
+create table T_SCORE(
+    bno number(10) primary key,
+    name varchar2(20),
+    kor varchar2(20),
+    eng varchar2(20)
+);
+
+create SEQUENCE T_SCORE_SEQ INCREMENT BY 1 START WITH 1 NOCACHE
